@@ -24,7 +24,7 @@ openstates.legDetail('NCL000173', function(err, json) {
 
 // Roger West
 ```
-There is a method for each Open States endpoint. Response is in JSON.
+There is a method for each Open States endpoint. Response is a JSON object.
 
 ## License
 MIT
