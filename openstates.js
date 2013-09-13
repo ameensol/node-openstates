@@ -2,8 +2,9 @@ var qs      = require('querystring'),
     request = require('request');
 
 var OpenStates = module.exports = function(apiKey) {
-  if(!apiKey) throw new Error('Must provide API Key');
-  this.key = apiKey; 
+  if (!(this instanceof OpenStates)) { return new OpenStates(apiKey) }
+  if (!apiKey) throw new Error('Must provide API Key');
+  this.key = apiKey;
 }
 
 OpenStates.prototype.makeRequest = function(method, params, callback) {
