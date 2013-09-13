@@ -1,0 +1,35 @@
+{
+  "name": "openstates",
+  "version": "0.0.0",
+  "description": "node.js wrapper for Sunlight Open States API",
+  "keywords": [
+    "sunlight",
+    "influence",
+    "congress",
+    "political",
+    "state"
+  ],
+  "author": "Ameen Soleimani (https://github.com/ameensol)",
+  "license": "MIT",
+  "dependencies": {
+    "querystring": "0.2.x",
+    "request": "2.25.x"
+  },
+  "devDependencies": {
+    "nconf": "~0.6.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ameensol/node-openstates"
+  },
+  "main": "openstates.js",
+  "engines": {
+    "node": "~0.10"
+  },
+  "bugs": {
+    "url": "https://github.com/ameensol/node-openstates/issues",
+    "email": "ameen.sol@gmail.com"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
