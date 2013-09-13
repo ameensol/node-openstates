@@ -53,7 +53,7 @@ openstates.legSearch({
 /*
 openstates.legDetail('NCL000173', function(err, json) {
   if (err) throw err;
-  console.log(json);
+  console.log(json.full_name);
 });
 */
 

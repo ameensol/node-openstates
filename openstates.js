@@ -33,7 +33,6 @@ OpenStates.prototype.executeRequest = function(options, callback) {
   // executes the HTTP request with the given options
 
   request(options, function(err, res, body) {
-    console.dir(options);
     if (!err && res.statusCode == 200) {
       callback(null, JSON.parse(body));
     } else {
