@@ -45,41 +45,39 @@ OpenStates.prototype.executeRequest = function(options, callback) {
 
 // Get list of all states with data available and basic metadata about their status
 OpenStates.prototype.metadataOverview = function(callback) {
-  var params = {};
-  this.makeRequest('metadata', params, callback);
+  this.makeRequest('metadata', {}, callback);
 };
 
 // Get detailed metadata for a particular state
 OpenStates.prototype.metadataState = function(state, callback) {
-  var params = {};
-  this.makeRequest('metadata/' + state, params, callback);
+  this.makeRequest('metadata/' + state, {}, callback);
 };
 
 /* Search bills by (almost) any of their attributes, or full text
  * For possible params, go to http://sunlightlabs.github.io/openstates-api/bills.html#methods/bill-search
  */
 OpenStates.prototype.billSearch = function(params, callback) {
+  if (typeof params != 'object') throw new Error('The first argument of billSearch must be an object with the parameters');
   this.makeRequest('bills', params, callback);
 };
 
 // Get full detail for bill, including any actions, votes, etc.
 OpenStates.prototype.billDetail = function(state, session, id, callback) {
-  var params = {};
   id = encodeURIComponent(id);
-  this.makeRequest('bills/' + state + '/' + session + '/' + id, params, callback);
+  this.makeRequest('bills/' + state + '/' + session + '/' + id, {}, callback);
 };
 
 /* Search legislators by their attributes.
  * For possible params, go to http://sunlightlabs.github.io/openstates-api/legislators.html#methods/legislator-search
  */
 OpenStates.prototype.legSearch = function(params, callback) {
+  if (typeof params != 'object') throw new Error('The first argument of legSearch must be an object with the parameters');
   this.makeRequest('legislators', params, callback);
 };
 
 // Get full detail for a legislator, including all roles
 OpenStates.prototype.legDetail = function(leg_id, callback) {
-  var params = {};
-  this.makeRequest('legislators/' + leg_id, params, callback);
+  this.makeRequest('legislators/' + leg_id, {}, callback);
 };
 
 
@@ -96,24 +94,24 @@ OpenStates.prototype.geoLookup = function(lat, long, callback) {
  * For params go to http://sunlightlabs.github.io/openstates-api/committees.html#methods/committee-search
  */
 OpenStates.prototype.comSearch = function(params, callback) {
+  if (typeof params != 'object') throw new Error('The first argument of comSearch must be an object with the parameters');
   this.makeRequest('committees', params, callback);
 };
 
 // Get full detail for committee, including all members.
 OpenStates.prototype.comDetail = function(com_id, callback) {
-  var params = {};
-  this.makeRequest('committees/' + com_id, params, callback);
+  this.makeRequest('committees/' + com_id, {}, callback);
 };
 
 // Search events by state and type
 OpenStates.prototype.eventSearch = function(params, callback) {
+  if (typeof params != 'object') throw new Error('The first argument of eventSearch must be an object with the parameters');
   this.makeRequest('events', params, callback);
 };
 
 // Get full detail for event
 OpenStates.prototype.eventDetail = function(event_id, callback) {
-  var params = {};
-  this.makeRequest('events/' + event_id, params, callback);
+  this.makeRequest('events/' + event_id, {}, callback);
 };
 
 // List districts for state (and optionally filtered by chamber)
@@ -130,6 +128,5 @@ OpenStates.prototype.districtSearch = function(state, chamber, callback) {
 
 // Get geographic boundary for a district
 OpenStates.prototype.districtBoundary = function(boundary_id, callback) {
-  var params = {};
-  this.makeRequest('districts/boundary/' + boundary_id, params, callback);
+  this.makeRequest('districts/boundary/' + boundary_id, {}, callback);
 };
