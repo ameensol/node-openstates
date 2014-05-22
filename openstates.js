@@ -61,6 +61,15 @@ OpenStates.prototype.billSearch = function(params, callback) {
   this.makeRequest('bills', params, callback);
 };
 
+/* Search bill by id
+ * bills/openstates_bill_id , alternate lookup - allows lookup by bill_id
+ */
+OpenStates.prototype.getBillById = function(openstates_unique_id, callback) {
+
+  if (typeof params == 'object') throw new Error('The first argument should be a openstates bill id , (not the HB 4566, but the unique id ie: MAB00011570)');
+  this.makeRequest('bills/' + openstates_unique_id, {} ,callback);
+};
+
 // Get full detail for bill, including any actions, votes, etc.
 OpenStates.prototype.billDetail = function(state, session, id, callback) {
   id = encodeURIComponent(id);
